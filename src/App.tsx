@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { ProductCard } from './components/ProductCard/ProductCard'
+import { data } from './mockData/mockData'
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+       {data.map((product, index) => (
+        <ProductCard
+          key={product.id}
+          title={product.title}
+          origin={product.origin}
+          price={product.price}
+          currency={product.currency}
+          imageUrl={product.imageUrl}
+        />
+      ))}
     </div>
   );
 }
